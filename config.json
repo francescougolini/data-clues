@@ -1,0 +1,18 @@
+{
+    "settings": {
+        "data_source": "csv",
+        "database": {
+            "type": "**Specifify if data retrival is dones by accessing a database.**",
+            "host": "**Specifify if data retrival is dones by accessing a database.**",
+            "port": "**Specifify if data retrival is dones by accessing a database.**",
+            "name": "**Specifify if data retrival is dones by accessing a database.**",
+            "table_name": "**Specifify if data retrival is dones by accessing a database.**",
+            "username": "**Specifify if data retrival is dones by accessing a database.**",
+            "password": "**Specifify if data retrival is dones by accessing a database.**"
+        }, 
+        "csv": {
+            "filepath": "data/in/",
+            "filename": "mock_data.csv"
+        }
+    }
+}
