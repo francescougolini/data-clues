@@ -52,8 +52,8 @@ class KeywordsMatcher(object):
         ''' Match the targetted values Series to a given list and append the results to a new Series in the target_df.
 
         The matching values can be: 
-        - 0, if the value matches an elment in the reference_keyword_list; 
-        - 1, if the value does NOT match any of the elments in the reference_keyword_list
+        - 0, if the value matches an element in the reference_keyword_list; 
+        - 1, if the value does NOT match any of the elements in the reference_keyword_list
 
         Args: 
             target_column_label: The name of the column to be analysed.
@@ -83,18 +83,6 @@ class KeywordsMatcher(object):
                 results_column_label: _matching_results_series
             })
 
-            '''
-            # Create a new column and, for each row, return the matching result
-            #self._dataframe_obj[results_column_label] = ''
-
-            for index, item in _unique_values_df.iterrows():
-
-                for index, row in self._dataframe_obj[self._dataframe_obj[target_column_label] == item[target_column_label]].iterrows():
-
-                    self._dataframe_obj.at[index, results_column_label] = item[results_column_label]
-
-            '''
-
             self._dataframe_obj = self._dataframe_obj.merge(
                 _unique_values_df, how='outer', on=target_column_label)
 
@@ -120,7 +108,7 @@ class KeywordsMatcher(object):
         return self._dataframe_obj
 
     def bulk_data_matching(self, keywords_parameters_dicts):
-        '''For each dictionary of keyword arguments, run in pararallel the rows-keywords matching function. 
+        '''For each dictionary of keyword arguments, run in parallel the rows-keywords matching function. 
 
         Args: 
             keywords_parameters_dicts: A list of dictionaries containing the parameters to be passed to the the match_rows_to_keyword function. 

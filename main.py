@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2021 Francesco Ugolini
 
-# NOTE: This is just an examplificatory use of the utility. Edit the following code according
+# NOTE: This is just an exemplificatory use of the utility. Edit the following code according
 # to the desired use and datasets available.
 
 import data_clues as dc
@@ -14,7 +14,7 @@ from data.input import reference_keywords_lists as rkl
 # NOTE: remember to specify in config.json the "data_source" type, i.e. "csv" or "database".
 settings_reader = dc.SettingsReader('config.json')
 
-# From the config gile retrive the source data to be processed.
+# From the configuration file retrive the source data to be processed.
 data_importer = dc.DataImporter(**settings_reader.get_source_data())
 
 target_df = data_importer.get_dataframe()
@@ -58,7 +58,7 @@ similarity_parameters_dict = [
 ]
 
 # A list of dictionaries containing the parameters to perform the similarity checks.
-occurences_parameters_dicts = [
+occurrences_parameters_dicts = [
     {
         'target_column_label': 'email',
         # Check bulk_character_occurrences_analysis() to read more about custom factors.
@@ -81,7 +81,7 @@ target_df = target_df.dc_similarity.bulk_check_similarity(
 )
 
 target_df = target_df.dc_occurrences.bulk_character_occurrences_analysis(
-    occurences_parameters_dicts
+    occurrences_parameters_dicts
 )
 
 target_df.to_csv('data/output/processed_dataframe.csv',

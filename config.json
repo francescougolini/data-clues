@@ -2,13 +2,13 @@
     "settings": {
         "data_source": "csv",
         "database": {
-            "type": "**Specifify if data retrival is dones by accessing a database.**",
-            "host": "**Specifify if data retrival is dones by accessing a database.**",
-            "port": "**Specifify if data retrival is dones by accessing a database.**",
-            "name": "**Specifify if data retrival is dones by accessing a database.**",
-            "table_name": "**Specifify if data retrival is dones by accessing a database.**",
-            "username": "**Specifify if data retrival is dones by accessing a database.**",
-            "password": "**Specifify if data retrival is dones by accessing a database.**"
+            "type": "**Specify if data retrieval is done by accessing a database.**",
+            "host": "**Specify if data retrieval is done by accessing a database.**",
+            "port": "**Specify if data retrieval is done by accessing a database.**",
+            "name": "**Specify if data retrieval is done by accessing a database.**",
+            "table_name": "**Specify if data retrieval is done by accessing a database.**",
+            "username": "**Specify if data retrieval is done by accessing a database.**",
+            "password": "**Specify if data retrieval is done by accessing a database.**"
         }, 
         "csv": {
             "filepath": "data/in/",

@@ -9,7 +9,7 @@ from data_clues.utilities import basic_unique_values
 
 @pandas.api.extensions.register_dataframe_accessor("dc_occurrences")
 class CharacterOccurrencesAnalyzer(object):
-    ''' Provide a numerical wieghted description of the different character types (word, digit, sign) for given Series in the Dataframe.
+    ''' Provide a numerical weighted description of the different character types (word, digit, sign) for given Series in the Dataframe.
 
     Attributes:
         pandas_obj: A Pandas object containing the data to be processed.
@@ -30,7 +30,7 @@ class CharacterOccurrencesAnalyzer(object):
         self._sign_factor = sign_factor if sign_factor is not None else 2
 
     def _character_occurrences_ratio(self, target_string=None, custom_factors=None):
-        ''' Calculate the occurence ratio for a given string.
+        ''' Calculate the occurrence ratio for a given string.
 
         Args:
             target_string: The string to be analysed.
@@ -62,19 +62,19 @@ class CharacterOccurrencesAnalyzer(object):
 
         total_characters_count = len(list(target_string))
 
-        occurence_ratio = ((1 - (1 / _sign_factor)) + (_word_factor * _word_characters_count) + (_digit_characters_count**(
+        occurrence_ratio = ((1 - (1 / _sign_factor)) + (_word_factor * _word_characters_count) + (_digit_characters_count**(
             1 - (_digit_factor * _digit_characters_count))) + ((1 / _sign_factor) * _other_characters_count)) / total_characters_count
 
-        return float(occurence_ratio)
+        return float(occurrence_ratio)
 
     def _character_occurrences_analysis(self, target_column_label=None, custom_factors=None, results_column_label=None):
-        ''' Measure the occurence ratio of each elment in a given Series and append the results in a new Series in the target_df.
+        ''' Measure the occurrence ratio of each element in a given Series and append the results in a new Series in the target_df.
 
         Args: 
             target_column_label: The name of the column to be analysed.
             custom_factors: An optional array containing numerical custom weights for the different character types, 
                 as [word_factor, digit_factor, sign_factor].
-            results_column_label: The name of the new column populated with the resuls of the analysis.
+            results_column_label: The name of the new column populated with the results of the analysis.
         Raises: 
             AttributeError: If any of the attribute is not provided. 
         Returns:
@@ -105,7 +105,7 @@ class CharacterOccurrencesAnalyzer(object):
 
     def _character_occurrences_iterator(self, occurrences_parameters_dicts, index):
         ''' Run the types occurrences analysis concurrently, with each process responsible for a 
-            occurences_parameters_dicts dictionary (identified by the index).
+            occurrences_parameters_dicts dictionary (identified by the index).
 
         Args: 
             occurrences_parameters_dicts: A list of dictionaries containing the parameters to be passed to the 
@@ -114,7 +114,7 @@ class CharacterOccurrencesAnalyzer(object):
         Raises: 
             None
         Returns:
-            The processed dataframe with a new column containing the result of the character occurences analysis. 
+            The processed dataframe with a new column containing the result of the character occurrences analysis. 
         '''
 
         self._character_occurrences_analysis(
@@ -123,7 +123,7 @@ class CharacterOccurrencesAnalyzer(object):
         return self._dataframe_obj
 
     def bulk_character_occurrences_analysis(self, occurrences_parameters_dicts):
-        '''For each dictionary of keyword arguments, run in pararallel the _character_occurrences_analysis function. 
+        '''For each dictionary of keyword arguments, run in parallel the _character_occurrences_analysis function. 
 
         Args: 
             occurrences_parameters_dicts: A list of dictionaries containing the parameters to be passed to the
@@ -132,7 +132,7 @@ class CharacterOccurrencesAnalyzer(object):
             None
         Returns:
             The processed Pandas dataframe with new columns containing the global (i.e. from all the processes) 
-            results of the character occurences analysis.  
+            results of the character occurrences analysis.  
         '''
 
         from functools import partial

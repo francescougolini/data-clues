@@ -27,7 +27,7 @@ class SimilarityChecker(object):
         Args:  
             target_column_a_labels: The label of one of the two Pandas Series to be proccessed. 
             target_column_b_labels: The label of one of the two Pandas Series to be proccessed. 
-            results_column_labels: The label of the Pandas Series used to store the result from the similary check.
+            results_column_labels: The label of the Pandas Series used to store the result from the similarity check.
         Raises: 
             None
         Return: 
@@ -71,7 +71,7 @@ class SimilarityChecker(object):
         return self._dataframe_obj
 
     def bulk_check_similarity(self, similarity_parameters_dicts):
-        '''For each dictionary of keyword arguments, run in pararallel the check_similarity function. 
+        '''For each dictionary of keyword arguments, run in parallel the check_similarity function. 
 
         Args: 
             similarity_parameters_dicts: A list of dictionaries containing the parameters to be passed to the 
