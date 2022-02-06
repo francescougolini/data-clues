@@ -3,7 +3,7 @@ data_clues
 
 Utility to spot similarities or patterns in a dataset.
 
-**Warning:** the library is __NOT__ maintained, and is __NOT__ intended for production.
+**Warning:** the library is __NOT__ maintained and is __NOT__ intended for production.
 
 The tool is designed to process a large set of data with little or no insight on it, except for clues or known patterns. This utility allows to check datapoints against each other in order to find similarities and/or differences.
 
